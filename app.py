@@ -5,7 +5,6 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 import pandas as pd
 
-
 app = Flask(__name__)
 model = pickle.load(open('kmeanscluster.pkl','rb'))   
 #run_with_ngrok(app)
@@ -42,5 +41,4 @@ def predict():
   return render_template('index.html', prediction_text='Model  has predicted  : {}'.format(result))
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+app.run()
